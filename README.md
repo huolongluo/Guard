@@ -7,6 +7,10 @@
 ```
 implementation 'com.github.huolongluo:Guard:v1.0'
 ```
+* android support
+```
+implementation 'com.github.huolongluo:Guard-Support:v1.0'
+```
 
 ### java用法
 * 注册
