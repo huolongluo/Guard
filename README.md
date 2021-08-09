@@ -1,5 +1,10 @@
 # Guard
 
+## 实现原理参考
+* [Android 黑科技保活实现原理揭秘](http://weishu.me/2020/01/16/a-keep-alive-method-on-android/)
+* [深度剖析APP保活案例](http://gityuan.com/2018/02/24/process-keep-forever/)
+
+
 ## 用法（具体api请参考api说明）
 ```
 allprojects {
