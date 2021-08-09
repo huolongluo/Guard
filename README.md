@@ -1,6 +1,4 @@
 # Guard
-## Be careful:
-项目里如果使用了Thread.UncaughtExceptionHandler或者第三方异常捕获库，比如友盟，bugly等，Guard请在Thread.UncaughtExceptionHandler或者第三方异常捕获库，比如友盟，bugly等之后注册使用，并且建议在Application里注册使用。 为什么要这样操作？因为如果android 8.0以上设备隐藏了通知栏信息，当您的app崩溃重启后会出现invalid channel for service notification异常，而该异常属于系统级别的，没法捕获，所以Guard对该异常进行了杀死app的操作，但是并不能保证第三方异常监控还是能捕获它。 如果第三方后台还是有该异常信息，你又觉得该异常影响你的app崩溃率，请调用hideNotificationAfterO(false)方法，打开通知栏信息。
 
 ## 用法（具体api请参考api说明）
 * androidx
@@ -61,3 +59,5 @@ guardRestart()
 ```
 -keep class com.tqxd.guard.entity.* {*;} 
 ```
+## Be careful:
+当项目在android 8.0以上的设备，隐藏了通知栏信息，app进程一旦崩溃，则自动重启，后会出现invalid channel for service notification异常，而该异常属于系统级别的，无法直接对这种系统的异常进行捕获，假如项目里面用到一些三方异常捕获库，如Bugy之类的，不能完全保证第三方异常监控也能捕获它。 可通过调用hideNotificationAfterO(false)方法，打开通知栏信息，这样就可以查看App的存活状态了。
