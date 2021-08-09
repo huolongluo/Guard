@@ -1,13 +1,26 @@
 # Guard
 
 ## 用法（具体api请参考api说明）
-* androidx
 ```
-implementation 'com.github.huolongluo:Guard:v1.0'
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
 ```
-* android support
+
+* ### androidx库的使用
 ```
-implementation 'com.github.huolongluo:Guard-Support:v1.0'
+dependencies {
+    implementation 'com.github.huolongluo:Guard:v1.0'
+}
+```
+* ### android support库的使用
+```
+dependencies {
+    implementation 'com.github.huolongluo:Guard-Support:v1.0'
+}
 ```
 
 ### java用法
