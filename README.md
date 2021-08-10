@@ -36,8 +36,8 @@ Guard.getInstance()
          .setPendingIntent(pendingIntent)//设置通知栏点击事件（非必传）
          .setMusicId(R.raw.main)//设置音乐（非必传）
          .setBackgroundMusicEnabled(true)//退到后台是否可以播放音乐（非必传）
-         .setCrashRestartUIEnabled(true)//设置奔溃可以重启，google原生rom android 10以下可以正常重启（非必传）
-         .setWorkerEnabled(true)//是否可以使用WorkManager，默认可以使用，非必传
+         .setCrashRestartUIEnabled(true)//设置App崩溃可以重启，google原生rom android 10以下可以正常重启（非必传）
+         .setWorkerEnabled(true)//是否可以使用WorkManager，默认可以使用（非必传）
 //         .addCallback(new GuardCallback())//运行时回调（非必传）
 //         .addBackgroundCallback(new GuardBackgroundCallback())//前后台切换回调，用于处理app前后台切换，（非必传）
          .register(this);
