@@ -29,15 +29,18 @@ dependencies {
 ```
 
 ### java用法
-* 注册
+* 注册（建议在Application的onCreate方法中进行）
 ```
 Guard.getInstance()
-       .isDebug(true)
-       .setPendingIntent(pendingIntent)
-       .addCallback(new GuardCallback())
-       ... //其他api等
-       ...
-       .register(this)
+         .isDebug(true)
+         .setPendingIntent(pendingIntent)//设置通知栏点击事件（非必传）
+         .setMusicId(R.raw.main)//设置音乐（非必传）
+         .setBackgroundMusicEnabled(true)//退到后台是否可以播放音乐（非必传）
+         .setCrashRestartUIEnabled(true)//设置奔溃可以重启，google原生rom android 10以下可以正常重启（非必传）
+         .setWorkerEnabled(true)//是否可以使用WorkManager，默认可以使用，非必传
+//         .addCallback(new GuardCallback())//运行时回调（非必传）
+//         .addBackgroundCallback(new GuardBackgroundCallback())//前后台切换回调，用于处理app前后台切换，（非必传）
+         .register(this);
 ```
 * 注销
 ```
@@ -79,3 +82,4 @@ guardRestart()
 ```
 ## Be careful:
 当项目在android 8.0以上的设备，隐藏了通知栏信息，app进程一旦崩溃，则自动重启，后会出现invalid channel for service notification异常，而该异常属于系统级别的，无法直接对这种系统的异常进行捕获，假如项目里面用到一些三方异常捕获库，如Bugly之类的，不能完全保证第三方异常监控也能捕获它。 可通过调用hideNotificationAfterO(false)方法，打开通知栏信息，这样就可以查看App的存活状态了。
+
