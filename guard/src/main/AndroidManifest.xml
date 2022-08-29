@@ -10,11 +10,13 @@
         <activity
             android:name=".pix.OnePixActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:launchMode="singleInstance"
             android:theme="@style/OnePixTheme" />
 
         <service
             android:name=".service.GuardJobService"
+            android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service android:name=".service.HideForegroundService" />
         <service
