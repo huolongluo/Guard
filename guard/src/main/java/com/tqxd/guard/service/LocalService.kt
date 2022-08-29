@@ -293,7 +293,7 @@ class LocalService : Service(), IBinder.DeathRecipient {
         if (times > 1 && sStartTimes == 1) {
             mGuardConfig.defaultConfig.restartIntent?.also {
                 try {
-                    PendingIntent.getActivity(this, 0, it, 0).send()
+                    PendingIntent.getActivity(this, 0, it, PendingIntent.FLAG_IMMUTABLE).send()
                 } catch (e: Exception) {
                 }
             }

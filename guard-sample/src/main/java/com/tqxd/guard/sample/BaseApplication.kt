@@ -56,7 +56,7 @@ class BaseApplication : Application(), GuardCallback {
             PendingIntent.getActivity(this, 0, Intent().apply {
                 setClass(this@BaseApplication, MainActivity::class.java)
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            }, PendingIntent.FLAG_UPDATE_CURRENT)
+            }, PendingIntent.FLAG_IMMUTABLE)
         //可选，注册广播监听器
         registerReceiver(MainReceiver(), IntentFilter().apply {
             addAction(Guard.GUARD_WORK)
